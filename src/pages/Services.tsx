@@ -1,359 +1,328 @@
-import { Navigation } from "@/components/Navigation";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Navigation from "@/components/Navigation";
+import ServiceCard from "@/components/ServiceCard";
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import {
-  Guitar,
   Wrench,
-  Zap,
-  Volume2,
-  Clock,
-  DollarSign,
-  CheckCircle,
-  Music,
   Settings,
-  Sparkles,
+  Paintbrush,
+  Zap,
+  Shield,
+  Clock,
+  ArrowRight,
+  CheckCircle,
 } from "lucide-react";
 
 const Services = () => {
-  const repairServices = [
+  const mainServices = [
     {
-      icon: <Wrench className="h-6 w-6" />,
-      title: "Fret Work",
+      title: "General Repairs",
       description:
-        "Fret leveling, crowning, and replacement for optimal playability",
-      price: "From $80",
-      duration: "2-3 days",
+        "Comprehensive repair services including neck adjustments, fret work, bridge repairs, and nut replacement. We handle everything from minor issues to major structural repairs.",
+      icon: Wrench,
+      price: "Starting at $50",
+      details: [
+        "Fret leveling and crown work",
+        "Neck adjustments and truss rod repair",
+        "Bridge and saddle work",
+        "Nut replacement and adjustment",
+        "Crack repairs and structural work",
+      ],
     },
     {
-      icon: <Guitar className="h-6 w-6" />,
-      title: "Neck Repair",
-      description: "Neck resets, crack repairs, and headstock breaks",
-      price: "From $150",
-      duration: "5-7 days",
+      title: "Electronics & Wiring",
+      description:
+        "Complete electronics services for electric guitars and basses including pickup installation, wiring repairs, and custom modifications.",
+      icon: Zap,
+      price: "Starting at $75",
+      details: [
+        "Pickup installation and replacement",
+        "Custom wiring configurations",
+        "Output jack repair",
+        "Potentiometer and switch replacement",
+        "Shielding and noise reduction",
+      ],
     },
     {
-      icon: <Music className="h-6 w-6" />,
-      title: "Bridge Work",
-      description: "Bridge regluing, saddle replacement, and intonation",
-      price: "From $100",
-      duration: "3-4 days",
+      title: "Setup & Maintenance",
+      description:
+        "Professional setups to optimize your guitar's playability including string height adjustment, intonation, and neck relief.",
+      icon: Settings,
+      price: "Starting at $40",
+      details: [
+        "Action adjustment",
+        "Intonation setting",
+        "Neck relief adjustment",
+        "String installation",
+        "General cleaning and conditioning",
+      ],
     },
     {
-      icon: <Settings className="h-6 w-6" />,
-      title: "Tuning Machine Repair",
-      description: "Tuner replacement and adjustment for smooth operation",
-      price: "From $60",
-      duration: "1-2 days",
+      title: "Refinishing & Restoration",
+      description:
+        "Complete refinishing services to restore your guitar's appearance while preserving its tonal characteristics and value.",
+      icon: Paintbrush,
+      price: "Starting at $200",
+      details: [
+        "Complete strip and refinish",
+        "Spot touch-ups and repairs",
+        "Color matching",
+        "Clear coat application",
+        "Hardware restoration",
+      ],
     },
   ];
 
-  const setupServices = [
-    {
-      icon: <Guitar className="h-6 w-6" />,
-      title: "Basic Setup",
-      description: "Action adjustment, intonation, and string change",
-      price: "$65",
-      duration: "Same day",
-    },
-    {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: "Premium Setup",
-      description: "Complete setup with fret polishing and deep cleaning",
-      price: "$95",
-      duration: "1-2 days",
-    },
-    {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Electric Guitar Setup",
-      description: "Includes pickup height adjustment and electronics check",
-      price: "$75",
-      duration: "Same day",
-    },
-    {
-      icon: <Volume2 className="h-6 w-6" />,
-      title: "Bass Setup",
-      description: "Specialized setup for bass guitars",
-      price: "$70",
-      duration: "Same day",
-    },
+  const additionalServices = [
+    "Custom guitar builds",
+    "Vintage guitar restoration",
+    "Insurance appraisals",
+    "Rush service (24-48 hours)",
+    "Pickup and delivery service",
+    "Consultation services",
   ];
 
-  const customServices = [
+  const processSteps = [
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Pickup Installation",
-      description: "Professional pickup upgrades and wiring",
-      price: "From $120",
-      duration: "2-3 days",
+      step: "1",
+      title: "Assessment",
+      description:
+        "We thoroughly examine your guitar to identify all issues and provide a detailed estimate.",
     },
     {
-      icon: <Settings className="h-6 w-6" />,
-      title: "Hardware Upgrades",
-      description: "Bridge, tuners, and nut upgrades",
-      price: "From $80",
-      duration: "1-3 days",
+      step: "2",
+      title: "Approval",
+      description:
+        "We discuss our findings with you and get approval before beginning any work.",
     },
     {
-      icon: <Volume2 className="h-6 w-6" />,
-      title: "Electronics Work",
-      description: "Rewiring, switch replacement, and custom wiring",
-      price: "From $100",
-      duration: "2-4 days",
+      step: "3",
+      title: "Repair",
+      description:
+        "Our skilled technicians perform the necessary repairs using quality parts and materials.",
     },
     {
-      icon: <Sparkles className="h-6 w-6" />,
-      title: "Custom Finishes",
-      description: "Refinishing and custom paint work",
-      price: "Quote required",
-      duration: "2-3 weeks",
+      step: "4",
+      title: "Quality Check",
+      description:
+        "Every guitar undergoes a final inspection and setup before being returned to you.",
     },
   ];
-
-  const features = [
-    "Free initial consultation and estimate",
-    "Use of premium strings and parts",
-    "30-day warranty on all work",
-    "Progress updates throughout service",
-    "Professional setup included with repairs",
-    "Rush service available for urgent needs",
-  ];
-
-  const ServiceCard = ({ service }: { service: any }) => (
-    <Card className="hover:shadow-lg transition-shadow">
-      <CardHeader>
-        <div className="flex items-start justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-blue-100 p-2 rounded-lg text-blue-600">
-              {service.icon}
-            </div>
-            <div>
-              <CardTitle className="text-lg">{service.title}</CardTitle>
-              <CardDescription className="mt-1">
-                {service.description}
-              </CardDescription>
-            </div>
-          </div>
-        </div>
-      </CardHeader>
-      <CardContent>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
-              <DollarSign className="h-4 w-4 text-green-600" />
-              <span className="font-semibold text-green-700">
-                {service.price}
-              </span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="h-4 w-4 text-slate-500" />
-              <span className="text-sm text-slate-600">{service.duration}</span>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-guitar-cream-50">
       <Navigation />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-100">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="secondary" className="mb-4">
-              Professional Guitar Services
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Complete <span className="text-blue-600">Guitar Care</span>{" "}
-              Solutions
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-              From routine maintenance to complex repairs and custom
-              modifications, we provide comprehensive guitar services to keep
-              your instrument in perfect condition.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link to="/appointment">Book Service</Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <Link to="/quote">Get Quote</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Categories */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+      <section className="bg-gradient-to-r from-guitar-brown-800 to-guitar-brown-700 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="font-display text-4xl lg:text-6xl font-bold mb-6">
               Our Services
+            </h1>
+            <p className="text-xl text-guitar-cream-100 max-w-3xl mx-auto">
+              Comprehensive guitar repair and restoration services backed by
+              decades of experience and a commitment to excellence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Services Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-3xl lg:text-4xl font-bold text-guitar-brown-900 mb-4">
+              What We Do
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Professional guitar services tailored to your instrument's needs
+            <p className="text-lg text-guitar-brown-600 max-w-2xl mx-auto">
+              From simple setups to complete restorations, we offer a full range
+              of services to keep your guitar in perfect playing condition.
             </p>
           </div>
 
-          <Tabs defaultValue="repair" className="max-w-6xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="repair">Repair Services</TabsTrigger>
-              <TabsTrigger value="setup">Setup & Maintenance</TabsTrigger>
-              <TabsTrigger value="custom">Custom Work</TabsTrigger>
-            </TabsList>
-
-            <TabsContent value="repair" className="mt-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {repairServices.map((service, index) => (
-                  <ServiceCard key={index} service={service} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="setup" className="mt-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {setupServices.map((service, index) => (
-                  <ServiceCard key={index} service={service} />
-                ))}
-              </div>
-            </TabsContent>
-
-            <TabsContent value="custom" className="mt-8">
-              <div className="grid md:grid-cols-2 gap-6">
-                {customServices.map((service, index) => (
-                  <ServiceCard key={index} service={service} />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {mainServices.map((service, index) => (
+              <Card
+                key={index}
+                className="border-guitar-brown-200 hover:shadow-lg transition-shadow"
+              >
+                <CardHeader>
+                  <div className="flex items-start justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-12 bg-guitar-gold-100 rounded-lg flex items-center justify-center">
+                        <service.icon className="h-6 w-6 text-guitar-gold-600" />
+                      </div>
+                      <div>
+                        <CardTitle className="font-display text-xl text-guitar-brown-900">
+                          {service.title}
+                        </CardTitle>
+                        <p className="text-guitar-gold-600 font-semibold">
+                          {service.price}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-guitar-brown-600 mb-4">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-2">
+                    {service.details.map((detail, detailIndex) => (
+                      <li
+                        key={detailIndex}
+                        className="flex items-center text-sm text-guitar-brown-600"
+                      >
+                        <CheckCircle className="h-4 w-4 text-guitar-gold-500 mr-2 flex-shrink-0" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* What's Included */}
-      <section className="py-16 bg-slate-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                What's Included
+      {/* Additional Services */}
+      <section className="py-16 bg-guitar-cream-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-display text-3xl lg:text-4xl font-bold text-guitar-brown-900 mb-6">
+                Additional Services
               </h2>
-              <p className="text-slate-600 max-w-2xl mx-auto">
-                Every service comes with our commitment to quality and customer
-                satisfaction
+              <p className="text-lg text-guitar-brown-600 mb-8">
+                Beyond our core repair services, we offer specialized solutions
+                for unique needs and situations. Whether you need a custom build
+                or emergency repair, we're here to help.
               </p>
+              <ul className="space-y-3 mb-8">
+                {additionalServices.map((service, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center text-guitar-brown-700"
+                  >
+                    <CheckCircle className="h-5 w-5 text-guitar-gold-500 mr-3 flex-shrink-0" />
+                    {service}
+                  </li>
+                ))}
+              </ul>
+              <Button
+                asChild
+                size="lg"
+                className="bg-guitar-gold-500 hover:bg-guitar-gold-600 text-white"
+              >
+                <Link to="/quote">
+                  Get Custom Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                  <span className="text-slate-700">{feature}</span>
-                </div>
-              ))}
+            <div className="grid grid-cols-2 gap-6">
+              <Card className="border-guitar-brown-200 text-center p-6">
+                <Shield className="h-12 w-12 text-guitar-gold-500 mx-auto mb-4" />
+                <h3 className="font-display text-lg font-bold text-guitar-brown-900 mb-2">
+                  90-Day Warranty
+                </h3>
+                <p className="text-guitar-brown-600 text-sm">
+                  All repairs backed by our comprehensive warranty
+                </p>
+              </Card>
+
+              <Card className="border-guitar-brown-200 text-center p-6">
+                <Clock className="h-12 w-12 text-guitar-gold-500 mx-auto mb-4" />
+                <h3 className="font-display text-lg font-bold text-guitar-brown-900 mb-2">
+                  Fast Turnaround
+                </h3>
+                <p className="text-guitar-brown-600 text-sm">
+                  Most repairs completed within 5-7 business days
+                </p>
+              </Card>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      {/* Process Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <h2 className="font-display text-3xl lg:text-4xl font-bold text-guitar-brown-900 mb-4">
               Our Process
             </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto">
-              Simple, transparent, and professional service from start to finish
+            <p className="text-lg text-guitar-brown-600 max-w-2xl mx-auto">
+              We follow a proven process to ensure your guitar receives the best
+              possible care and attention.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">1</span>
+          <div className="grid md:grid-cols-4 gap-8">
+            {processSteps.map((step, index) => (
+              <div key={index} className="text-center">
+                <div className="w-16 h-16 bg-guitar-gold-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  {step.step}
+                </div>
+                <h3 className="font-display text-xl font-bold text-guitar-brown-900 mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-guitar-brown-600">{step.description}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Consultation</h3>
-              <p className="text-slate-600 text-sm">
-                Free assessment and detailed quote for your guitar
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">2</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Service</h3>
-              <p className="text-slate-600 text-sm">
-                Professional work with regular progress updates
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">3</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Quality Check</h3>
-              <p className="text-slate-600 text-sm">
-                Thorough testing and final setup before return
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">4</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Pickup</h3>
-              <p className="text-slate-600 text-sm">
-                Your guitar returned in perfect playing condition
-              </p>
-            </div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Pricing Note */}
+      <section className="py-12 bg-guitar-brown-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="font-display text-2xl font-bold text-guitar-brown-900 mb-4">
+            Transparent Pricing
+          </h3>
+          <p className="text-guitar-brown-700 mb-6">
+            All prices shown are starting rates. Final pricing depends on the
+            specific work required. We always provide a detailed estimate before
+            beginning any repair work.
+          </p>
+          <p className="text-guitar-brown-600 text-sm">
+            * Emergency and rush services available for an additional fee
+          </p>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Service Your Guitar?
+      <section className="py-16 bg-guitar-brown-800 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
+            Ready to Get Started?
           </h2>
-          <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-            Book an appointment or get a quote for your guitar service needs
+          <p className="text-xl text-guitar-cream-100 mb-8 max-w-2xl mx-auto">
+            Whether you need a simple setup or major restoration, our team is
+            ready to help. Contact us today to discuss your guitar's needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild>
+            <Button
+              asChild
+              size="lg"
+              className="bg-guitar-gold-500 hover:bg-guitar-gold-600 text-white"
+            >
               <Link to="/appointment">Book Appointment</Link>
             </Button>
             <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-blue-600"
               asChild
+              variant="outline"
+              size="lg"
+              className="border-guitar-cream-200 text-guitar-cream-100 hover:bg-guitar-cream-100 hover:text-guitar-brown-800"
             >
-              <Link to="/quote">Get a Quote</Link>
+              <Link to="/quote">Get Free Quote</Link>
             </Button>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="py-8 border-t">
-        <div className="container mx-auto px-4 text-center text-slate-600">
-          <p>&copy; 2024 StringCraft Services. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

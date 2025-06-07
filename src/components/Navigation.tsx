@@ -1,93 +1,100 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Guitar } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Home, Users, Wrench, FileText, Calendar, Music } from "lucide-react";
 
-const navigationItems = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Get a Quote", href: "/quote" },
-  { name: "Appointment", href: "/appointment" },
-];
-
-export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navigation = () => {
   const location = useLocation();
 
-  const NavLinks = ({ mobile = false }: { mobile?: boolean }) => (
-    <>
-      {navigationItems.map((item) => (
-        <Link
-          key={item.name}
-          to={item.href}
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            location.pathname === item.href
-              ? "text-foreground"
-              : "text-foreground/60",
-            mobile && "block px-3 py-2 text-base font-medium",
-          )}
-          onClick={() => mobile && setIsOpen(false)}
-        >
-          {item.name}
-        </Link>
-      ))}
-    </>
-  );
+  const navItems = [
+    { path: "/", label: "Home", icon: Home },
+    { path: "/about", label: "About Us", icon: Users },
+    { path: "/services", label: "Services", icon: Wrench },
+    { path: "/quote", label: "Get a Quote", icon: FileText },
+    { path: "/appointment", label: "Book Appointment", icon: Calendar },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link to="/" className="mr-6 flex items-center space-x-2">
-            <Guitar className="h-6 w-6" />
-            <span className="hidden font-bold sm:inline-block">
-              StringCraft Services
+    <nav className="bg-white shadow-lg border-b border-guitar-brown-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <Music className="h-8 w-8 text-guitar-gold-500" />
+            <span className="font-display text-xl font-bold text-guitar-brown-800">
+              Harmony Repairs
             </span>
           </Link>
-          <nav className="flex items-center space-x-6 text-sm font-medium">
-            <NavLinks />
-          </nav>
-        </div>
 
-        {/* Mobile Navigation */}
-        <Sheet open={isOpen} onOpenChange={setIsOpen}>
-          <SheetTrigger asChild>
-            <Button
-              variant="ghost"
-              className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
-            >
-              <Menu className="h-5 w-5" />
-              <span className="sr-only">Toggle Menu</span>
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="pr-0">
-            <Link
-              to="/"
-              className="flex items-center space-x-2"
-              onClick={() => setIsOpen(false)}
-            >
-              <Guitar className="h-6 w-6" />
-              <span className="font-bold">StringCraft Services</span>
-            </Link>
-            <nav className="mt-6 space-y-1">
-              <NavLinks mobile />
-            </nav>
-          </SheetContent>
-        </Sheet>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
 
-        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
-            <Link to="/" className="flex items-center space-x-2 md:hidden">
-              <Guitar className="h-6 w-6" />
-              <span className="font-bold">StringCraft Services</span>
-            </Link>
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={cn(
+                    "flex items-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200",
+                    isActive
+                      ? "bg-guitar-gold-100 text-guitar-brown-900"
+                      : "text-guitar-brown-600 hover:text-guitar-brown-900 hover:bg-guitar-cream-50",
+                  )}
+                >
+                  <Icon className="h-4 w-4" />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button className="text-guitar-brown-600 hover:text-guitar-brown-900 p-2">
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Navigation (hidden by default, would need state management for toggle) */}
+        <div className="md:hidden border-t border-guitar-brown-200 py-3 space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium transition-colors duration-200",
+                  isActive
+                    ? "bg-guitar-gold-100 text-guitar-brown-900"
+                    : "text-guitar-brown-600 hover:text-guitar-brown-900 hover:bg-guitar-cream-50",
+                )}
+              >
+                <Icon className="h-5 w-5" />
+                <span>{item.label}</span>
+              </Link>
+            );
+          })}
+        </div>
       </div>
-    </header>
+    </nav>
   );
 };
+
+export default Navigation;
