@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => ({
   base: '/GuitarServiceWebsite',
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./GuitarServiceWebsite/src"),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 }));
