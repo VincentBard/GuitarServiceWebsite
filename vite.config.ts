@@ -11,7 +11,6 @@ export default defineConfig(({ mode }) => ({
     port: 8080,
   },
   plugins: [react(), builderDevTools()],
-  base: '/GuitarServiceWebsite',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
