@@ -12,9 +12,9 @@ export default defineConfig(({ mode }) => ({
   },*/
   plugins: [react(), builderDevTools()],
   base: '/GuitarServiceWebsite',
-  /*resolve: {
+  resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@": path.resolve(__dirname, "./GuitarServiceWebsite/src"),
     },
-  },*/
+  },
 }));
