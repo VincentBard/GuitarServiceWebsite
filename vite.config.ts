@@ -5,16 +5,16 @@ import path from "path";
 
 // https://vitejs.dev/config/
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   /*server: {
     host: "::",
     port: 8080,
   },*/
   plugins: [react(), builderDevTools()],
   base: '/GuitarServiceWebsite',
-  /*resolve: {
+  resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },*/
-}));
+  },
+});
