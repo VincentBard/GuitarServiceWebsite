@@ -295,34 +295,56 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-guitar-brown-800 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-3xl lg:text-4xl font-bold mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-guitar-cream-100 mb-8 max-w-2xl mx-auto">
-            Whether you need a simple setup or major restoration, our team is
-            ready to help. Contact us today to discuss your guitar's needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="bg-guitar-gold-500 hover:bg-guitar-gold-600 text-white"
-            >
-              <Link to="/appointment">Book Appointment</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-guitar-cream-200 text-guitar-cream-100 hover:bg-guitar-cream-100 hover:text-guitar-brown-800"
-            >
-              <Link to="/quote">Get Free Quote</Link>
-            </Button>
+      <footer className="bg-guitar-brown-900 text-guitar-cream-100 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Music className="h-8 w-8 text-guitar-gold-500" />
+                <span className="font-display text-xl font-bold">
+                  Plectrum Techs
+                </span>
+              </div>
+              <p className="text-guitar-cream-200">
+                Professional guitar repair and restoration services since 1985.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Services</h4>
+              <ul className="space-y-2 text-guitar-cream-200">
+                <li>General Repairs</li>
+                <li>Electronics</li>
+                <li>Setup & Maintenance</li>
+                <li>Refinishing</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Contact</h4>
+              <ul className="space-y-2 text-guitar-cream-200">
+                <li>123 Bank Street</li>
+                <li>Ottawa, ON K1P 5N2</li>
+                <li>(613) 555-0123</li>
+                <li>info@plectrumtechs.com</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4">Hours</h4>
+              <ul className="space-y-2 text-guitar-cream-200">
+                <li>Mon-Fri: 9:00 AM - 6:00 PM</li>
+                <li>Saturday: 10:00 AM - 4:00 PM</li>
+                <li>Sunday: Closed</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-guitar-brown-700 mt-8 pt-8 text-center text-guitar-cream-300">
+            <p>&copy; 2024 Plectrum Techs. All rights reserved.</p>
           </div>
         </div>
-      </section>
+      </footer>
     </div>
   );
 };
