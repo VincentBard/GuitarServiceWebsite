@@ -121,7 +121,7 @@ const BookAppointment = () => {
                       </h3>
                       <p className="text-guitar-brown-600">
                         If your guitar needs immediate attention due to damage
-                        or safety concerns, please call us directly at (615)
+                        or safety concerns, please call us directly at (613)
                         555-0123. We offer emergency repair services for urgent
                         situations.
                       </p>
@@ -141,7 +141,7 @@ const BookAppointment = () => {
                       <p className="text-guitar-brown-600">
                         Life happens! If you need to change your appointment,
                         please give us at least 24 hours notice. You can call us
-                        or email info@harmonyrepairs.com.
+                        or email info@plectrumtechs.com.
                       </p>
                     </div>
                   </div>
@@ -194,8 +194,8 @@ const BookAppointment = () => {
                   Location
                 </h3>
                 <div className="text-guitar-brown-700 space-y-1">
-                  <p>123 Music Street</p>
-                  <p>Nashville, TN 37203</p>
+                  <p>123 Bank Street</p>
+                  <p>Ottawa, ON K1P 5N2</p>
                   <p className="mt-3 text-sm text-guitar-brown-600">
                     Free parking available in rear lot
                   </p>
@@ -220,11 +220,11 @@ const BookAppointment = () => {
             us directly. We offer same-day service for emergency situations.
           </p>
           <a
-            href="tel:6155550123"
+            href="tel:6135550123"
             className="inline-flex items-center justify-center px-6 py-3 bg-guitar-gold-500 hover:bg-guitar-gold-600 text-white font-semibold rounded-lg transition-colors"
           >
             <Phone className="mr-2 h-5 w-5" />
-            Call (615) 555-0123
+            Call (613) 555-0123
           </a>
         </div>
       </section>

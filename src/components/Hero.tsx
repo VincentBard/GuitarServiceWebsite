@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Music, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -47,7 +47,12 @@ const Hero = () => {
             <div className="bg-guitar-brown-200 rounded-2xl p-8 lg:p-12 transform rotate-3 shadow-xl">
               <div className="bg-white rounded-xl p-6 lg:p-8 transform -rotate-6 shadow-lg">
                 <div className="flex items-center justify-center h-64 lg:h-80">
-                  <Music className="h-32 w-32 lg:h-40 lg:w-40 text-guitar-gold-500" />
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F226266b64ccd402c84492efdf55dd30e%2F1e39c78a422b471582bb161c897309b1?width=400"
+                    alt="Professional guitar repair service"
+                    className="w-full h-full object-cover object-center rounded-lg mt-5"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="mt-6 text-center">
                   <h3 className="font-display text-2xl font-bold text-guitar-brown-900">
@@ -61,8 +66,14 @@ const Hero = () => {
             </div>
 
             {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-guitar-gold-300 rounded-full opacity-60"></div>
-            <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-guitar-cream-300 rounded-full opacity-80"></div>
+            <div
+              className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-60"
+              style={{ backgroundColor: "#f59e0b" }}
+            ></div>
+            <div
+              className="absolute -bottom-6 -left-10 w-16 h-16 rounded-full opacity-80"
+              style={{ backgroundColor: "#fffbf5" }}
+            ></div>
           </div>
         </div>
       </div>

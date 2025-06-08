@@ -120,7 +120,7 @@ const GetQuote = () => {
                 <h3 className="font-display text-lg font-bold text-guitar-brown-900 mb-2">
                   Call Us
                 </h3>
-                <p className="text-guitar-brown-600 mb-2">(615) 555-0123</p>
+                <p className="text-guitar-brown-600 mb-2">(613) 555-0123</p>
                 <p className="text-sm text-guitar-brown-500">
                   Mon-Fri: 9 AM - 6 PM
                   <br />
@@ -136,7 +136,7 @@ const GetQuote = () => {
                   Email Us
                 </h3>
                 <p className="text-guitar-brown-600 mb-2">
-                  info@harmonyrepairs.com
+                  info@plectrumtechs.com
                 </p>
                 <p className="text-sm text-guitar-brown-500">
                   We respond to all emails
@@ -153,9 +153,9 @@ const GetQuote = () => {
                   Visit Our Shop
                 </h3>
                 <p className="text-guitar-brown-600 mb-2">
-                  123 Music Street
+                  123 Bank Street
                   <br />
-                  Nashville, TN 37203
+                  Ottawa, ON K1P 5N2
                 </p>
                 <p className="text-sm text-guitar-brown-500">
                   Walk-ins welcome

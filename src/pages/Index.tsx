@@ -82,7 +82,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-guitar-brown-900 mb-4">
-              Why Choose Harmony Repairs?
+              Why Choose Plectrum Techs?
             </h2>
             <p className="text-lg text-guitar-brown-600 max-w-2xl mx-auto">
               With over 35 years of experience, we've built a reputation for
@@ -229,13 +229,13 @@ const Index = () => {
               variant="outline"
               size="lg"
               className="border-guitar-cream-200 text-guitar-cream-100 hover:bg-guitar-cream-100 hover:text-guitar-brown-800"
+              style={{ color: "#73564a" }}
             >
               <Link to="/quote">Get Free Quote</Link>
             </Button>
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-guitar-brown-900 text-guitar-cream-100 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -244,7 +244,7 @@ const Index = () => {
               <div className="flex items-center space-x-2 mb-4">
                 <Music className="h-8 w-8 text-guitar-gold-500" />
                 <span className="font-display text-xl font-bold">
-                  Harmony Repairs
+                  Plectrum Techs
                 </span>
               </div>
               <p className="text-guitar-cream-200">
@@ -265,10 +265,10 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-guitar-cream-200">
-                <li>123 Music Street</li>
-                <li>Nashville, TN 37203</li>
-                <li>(615) 555-0123</li>
-                <li>info@harmonyrepairs.com</li>
+                <li>123 Bank Street</li>
+                <li>Ottawa, ON K1P 5N2</li>
+                <li>(613) 555-0123</li>
+                <li>info@plectrumtechs.com</li>
               </ul>
             </div>
 
@@ -283,7 +283,7 @@ const Index = () => {
           </div>
 
           <div className="border-t border-guitar-brown-700 mt-8 pt-8 text-center text-guitar-cream-300">
-            <p>&copy; 2024 Harmony Repairs. All rights reserved.</p>
+            <p>&copy; 2024 Plectrum Techs. All rights reserved.</p>
           </div>
         </div>
       </footer>

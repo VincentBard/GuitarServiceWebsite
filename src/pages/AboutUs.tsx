@@ -11,7 +11,7 @@ const AboutUs = () => {
       role: "Master Luthier & Founder",
       experience: "35+ years",
       description:
-        "Founded Harmony Repairs in 1985 with a passion for bringing guitars back to life. Specializes in vintage acoustic restoration.",
+        "Founded Plectrum Techs in 1985 with a passion for bringing guitars back to life. Specializes in vintage acoustic restoration.",
     },
     {
       name: "Sarah Thompson",
@@ -32,7 +32,7 @@ const AboutUs = () => {
   const milestones = [
     {
       year: "1985",
-      event: "Harmony Repairs founded in a small Nashville workshop",
+      event: "Plectrum Techs founded in a small Ottawa workshop",
     },
     {
       year: "1992",
@@ -68,9 +68,9 @@ const AboutUs = () => {
               Our Story
             </h1>
             <p className="text-xl text-guitar-cream-100 max-w-3xl mx-auto">
-              For nearly four decades, we've been Nashville's premier
-              destination for guitar repair, restoration, and maintenance. Our
-              passion for music drives everything we do.
+              For nearly four decades, we've been Ottawa's premier destination
+              for guitar repair, restoration, and maintenance. Our passion for
+              music drives everything we do.
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const AboutUs = () => {
               <p className="text-lg text-guitar-brown-700 mb-8">
                 Our commitment to quality craftsmanship, honest communication,
                 and fair pricing has made us the trusted choice for musicians
-                throughout Tennessee and beyond.
+                throughout Ottawa and beyond.
               </p>
               <div className="flex space-x-8">
                 <div className="text-center">
