@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import AboutUs from "./pages/AboutUs";
-import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScollToTop.tsx";
 import Services from "./pages/Services";
 import GetQuote from "./pages/GetQuote";
 import BookAppointment from "./pages/BookAppointment";
